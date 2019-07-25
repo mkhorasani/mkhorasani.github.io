@@ -126,7 +126,7 @@
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
 		  .append("svg:title")
-   	          .text(function(d) { return d.Country; });
+   	          .text(function(d) { return d.Country; })
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
                    })
