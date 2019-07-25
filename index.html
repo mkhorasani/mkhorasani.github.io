@@ -49,18 +49,6 @@
 	     
 	<style> rect, axes {fill: black; stroke: black;} circle {fill: none; stroke: white;} line {stroke="gray"; stroke-width="50;}  
 	     
-		div.tooltip {	
-		    position: absolute;			
-		    text-align: center;			
-		    width: 60px;					
-		    height: 28px;					
-		    padding: 2px;				
-		    font: 12px sans-serif;		
-		    background: lightsteelblue;	
-		    border: 0px;		
-		    border-radius: 8px;			
-		    pointer-events: none;			
-		}
 		
 	</style>
 	
@@ -100,10 +88,6 @@
 	    d.Purchasing_power_index = +d.Purchasing_power_index;
 	  });
 	// Scale the range of the data
-		
-	var div = d3.select("body").append("div")	
-    	.attr("class", "tooltip")				
-    	.style("opacity", 0);
 		
 		
 	  x.domain(d3.extent(data, function(d) { return d.Purchasing_power_index; })).nice();
@@ -147,12 +131,6 @@
                    .transition()
                    .style("opacity", 0.01)
 		  
-		  div.transition()		
-                .duration(200)		
-                .style("opacity", .9);		
-            	div	.html(d.Quality_of_life_index + "<br/>"  + d.Purchasing_power_index)	
-                .style("left", (d3.event.pageX) + "px")		
-                .style("top", (d3.event.pageY - 28) + "px")
           })
               .on("mouseout", function(d){
                d3.selectAll('.dot')
