@@ -151,7 +151,24 @@
 	      .attr("cx", width -25)
 	      .attr("cy", 130)
 	      .attr("r", 8)
-	      .style("fill", color);
+	      .style("fill", color)
+	.on("mouseover", function(d){
+        	  d3.selectAll('.dot')
+            	   .filter(function(dot){ 
+                    return (dot.Continent != d.Continent) 
+                   })
+                   .transition()
+                   .style("opacity", 0.01)
+          })
+              .on("mouseout", function(d){
+               d3.selectAll('.dot')
+                .filter(function(dot){ 
+                 return (dot.Continent != d.Continent) 
+                })
+                .transition()
+                .style("opacity", 1)
+          });
+		
 	  legend.append("text")
 	      .attr("x", width -40)
 	      .attr("y", 135)
