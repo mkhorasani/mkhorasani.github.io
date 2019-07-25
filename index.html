@@ -76,17 +76,7 @@
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
-				
-	function make_x_gridlines() {		
-	    return d3.axisBottom(x)
-		.ticks(5)
-	}
-
-	// gridlines in y axis function
-	function make_y_gridlines() {		
-	    return d3.axisLeft(y)
-		.ticks(5)
-	}		
+					
 	// Get the data
 	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv", function(error, data) {
 	  if (error) throw error;
@@ -145,21 +135,14 @@
                 .style("opacity", 1)
           });
 			
-	  svg.append("g")			
-	      .attr("class", "grid")
-	      .attr("transform", "translate(0," + height + ")")
-	      .call(make_x_gridlines()
-		  .tickSize(-height)
-		  .tickFormat("")
-	      )
+	  var gridlines = d3.axisTop()
+			    .tickFormat("")
+			    .tickSize(-height)
+			    .scale(scale);
 
-	  // add the Y gridlines
-	  svg.append("g")			
-	      .attr("class", "grid")
-	      .call(make_y_gridlines()
-		  .tickSize(-width)
-		  .tickFormat("")
-	      )	
+	  svg.append("g")
+	     .attr("class", "grid")
+	     .call(gridlines);
 		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
