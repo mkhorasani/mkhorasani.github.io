@@ -50,7 +50,7 @@
 	<style> rect, axes {fill: none; stroke: black;} circle {fill: none; stroke: none;} line {stroke="gray"; stroke-width="50;}  </style>
 		     
 	<script>
-	<line x1="5" y1="5" x2="400" y2="400" stroke="gray" stroke-width="50"  />
+
 	var margin = {left: 90, right: 20, top: 50, bottom: 50},
 	    width = 900 - margin.left - margin.right,
 	    height = 400 - margin.top - margin.bottom;
@@ -75,8 +75,7 @@
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	
-	svg.selectAll("line").append("line")	
+		
 				
 		
 	// Get the data
@@ -136,6 +135,19 @@
                 .transition()
                 .style("opacity", 1)
           });
+		
+	  svg.selectAll(".line")
+	      .data(data)
+	    .enter().append("line")
+	      .attr("stroke-width", 5)
+	      .attr("x1", 5)
+	      .attr("y1", 5)
+	      .attr("x2", 500)
+	      .attr("y2", 500)
+	      .attr("cx", 50)
+	      .attr("cy", 50)
+	      .style("fill", function(d) { return color(d.type); })
+		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
 	      .data(color.domain())
