@@ -47,8 +47,8 @@
       </div>
      <div id="vis-canvas"> 
 	     
-	<style> rect, axes {fill: none; stroke: black; shape-rendering="crispEdges";} circle {fill: none; stroke: none;}  </style>
-	<line x1="5" y1="5" x2="40" y2="40" stroke="gray" stroke-width="5"  />	     
+	<style> rect, axes {fill: none; stroke: black;} circle {fill: none; stroke: none;}  </style>
+		     
 	<script>
 
 	var margin = {left: 90, right: 30, top: 50, bottom: 50},
@@ -75,6 +75,8 @@
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		
+	<line x1="5" y1="5" x2="400" y2="400" stroke="gray" stroke-width="50"  />		
 		
 	// Get the data
 	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/data.csv", function(error, data) {
