@@ -1,0 +1,165 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>CS498 Data Visualization Final Project</title>
+  <meta name="author" content="">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/stepper.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <script src="js/stepper.js"></script>
+  <script src="//d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <h1>Quality of Life Visualization</h1>
+    <h2 class="subtitle">Quality of Life Visualization.</h2>
+    <div id="vis-nav">
+      <a href="#" id="step1" class="step-link active">Scene 1</a>
+      <a href="#" id="step2" class="step-link">Scene 2</a>
+      <a href="#" id="step3" class="step-link">Scene 3</a>
+      <a href="https://github.com/" target="_blank" class="desc-link">About</a>
+
+    </div>
+    <div id="vis-container">
+      <div id="annotation-steps">
+        <div class="annotation-step" id="step1-annotation" style="display:block;">
+          <div class="annotation" id="step1-high-annotation" >
+            <h4>Annotation 1</h4>
+
+          </div>
+         </div>
+        <div class="annotation-step" id="step2-annotation">
+          <div class="annotation" id="step2-high-annotation" >
+	    <h4>Mouseover</h4>
+
+          </div>
+        </div>
+	<div class="annotation-step" id="step3-annotation">
+          <div class="annotation" id="step3-high-annotation" >
+	    <h4>Annotation 2</h4>
+
+          </div>
+        </div>
+      </div>
+     <div id="vis-canvas">
+
+      <style>
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+	.dot {
+	  stroke: #000;
+	}
+	</style>
+
+	<script>
+	// Set the dimensions of the canvas / graph
+	var margin = {top: 50, right: 20, bottom: 30, left: 80},
+	    width = 940 - margin.left - margin.right,
+	    height = 500 - margin.top - margin.bottom;
+	// Set the ranges
+	var x = d3.scale.linear()
+	    .range([0, width]);
+	var y = d3.scale.linear()
+	    .range([height, 0]);
+	var color = d3.scale.category10();
+	// Define the axes
+	var xAxis = d3.svg.axis()
+	    .scale(x)
+	    .orient("bottom");
+	var yAxis = d3.svg.axis()
+	    .scale(y)
+	    .orient("left");
+	// Add the svg canvas
+	var svg = d3.select("#vis-canvas").append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	// Get the data
+	d3.csv("https://raw.githubusercontent.com/mkhorasani/CS498_Data-Visualization_Final_Project/master/QOL.csv?token=AJIVK6ZACYWQN5KPDQH6CVK5HHABK", function(error, data) {
+	  if (error) throw error;
+	  data.forEach(function(d) {
+	    d.Quality of Life Index = +d.Quality_of_Life_Index;
+	    d.Purchasing Power Index = +d.Purchasing_Power_Index;
+	  });
+	// Scale the range of the data
+	  x.domain(d3.extent(data, function(d) { return d.Purchasing_Power_Index; })).nice();
+	  y.domain(d3.extent(data, function(d) { return d.Quality_of_Life_Index; })).nice();
+	// Add the X Axis
+	  svg.append("g")
+	      .attr("class", "x axis")
+	      .attr("transform", "translate(0," + height + ")")
+	      .call(xAxis)
+	    .append("text")
+	      .attr("class", "label")
+	      .attr("x", width)
+	      .attr("y", -6)
+	      .style("text-anchor", "end")
+	      .text("Quality of Life Index");
+	// Add the Y Axis
+	  svg.append("g")
+	      .attr("class", "y axis")
+	      .call(yAxis)
+	    .append("text")
+	      .attr("class", "label")
+	      .attr("transform", "rotate(-90)")
+	      .attr("y", 6)
+	      .attr("dy", ".71em")
+	      .style("text-anchor", "end")
+	      .text("Purchasing Power Index")
+	// Add the Scatterplot
+	  svg.selectAll(".dot")
+	      .data(data)
+	    .enter().append("circle")
+	      .attr("class", "dot")
+	      .attr("r", 3.5)
+	      .attr("cx", function(d) { return x(d.Quality_of_Life_Index); })
+	      .attr("cy", function(d) { return y(d.Purchasing_Power_Index); })
+	      .style("fill", function(d) { return color(d.type); })
+	      .on("mouseover", function(d){
+        	  d3.selectAll('.dot')
+            	   .filter(function(dot){
+                    return (dot.type != d.type)
+                   })
+                   .transition()
+                   .style("opacity", 0.01)
+          })
+              .on("mouseout", function(d){
+               d3.selectAll('.dot')
+                .filter(function(dot){
+                 return (dot.type != d.type)
+                })
+                .transition()
+                .style("opacity", 1)
+          });
+	// Add the Legend
+	  var legend = svg.selectAll(".legend")
+	      .data(color.domain())
+	    .enter().append("g")
+	      .attr("class", "legend")
+	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+	  legend.append("rect")
+	      .attr("x", width - 18)
+	      .attr("width", 18)
+	      .attr("height", 18)
+	      .style("fill", color);
+	  legend.append("text")
+	      .attr("x", width - 24)
+	      .attr("y", 9)
+	      .attr("dy", ".35em")
+	      .style("text-anchor", "end")
+	      .text(function(d) { return d; });
+	});
+	</script>
+     </div>
+    </div>
+  </div>
+</body>
