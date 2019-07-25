@@ -145,13 +145,14 @@
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 	  legend.append("rect")
 	      .attr("x", width - 18)
+	      .attr("y", 120)
 	      .attr("width", 18)
 	      .attr("height", 18)
 	      .style("fill", color);
 	  legend.append("text")
 	      .attr("x", width - 24)
-	      .attr("y", 90)
-	      .attr("dy", ".35em")
+	      .attr("y", 120)
+	      //.attr("dy", ".35em")
 	      .style("text-anchor", "end")
 	      .text(function(d) { return d; });
 	});
