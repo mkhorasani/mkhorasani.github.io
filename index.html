@@ -84,7 +84,7 @@
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-	d3.csv("https://github.com/mkhorasani/mkhorasani.github.io/blob/master/data/data.csv", function(error, data) {
+	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/data.csv", function(error, data) {
 	  if (error) throw error;
 	  data.forEach(function(d) {
 	    d.CO2 = +d.CO2;
