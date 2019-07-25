@@ -135,14 +135,6 @@
                 .style("opacity", 1)
           });
 			
-	  var gridlines = d3.axisTop()
-			    .tickFormat("")
-			    .tickSize(-height)
-			    .scale(scale);
-
-	  svg.append("g")
-	     .attr("class", "grid")
-	     .call(gridlines);
 		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
