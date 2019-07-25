@@ -159,6 +159,15 @@
                  .tickSize(-w)
                  .ticks(10)
                  .scale(yScale);
+	
+	svg.append("g")
+		.attr("class", "main-grid")
+		.call(ygridlines);
+
+		svg.append("g")
+		.attr("class", "main-grid")
+		.call(xgridlines);
+		
 	//var color = d3.scaleOrdinal() // D3 Version 4
   	//.domain(["Europe", "San Francisco", "Austin"])
   	//.range(["#FF0000", "#009933" , "#0000FF"]);
