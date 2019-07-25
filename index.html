@@ -131,8 +131,11 @@
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
 		  .append("svg:title")
-		  .append("tspan")
-   	          .text(function(d) { return d.Country + <tspan> + d.Purchasing_power_index + </tspan> + d.Quality_of_life_index + "<br/>" + d.Cost_of_living_index; })
+		  .html(function (d) {
+			  return "<tspan x='0' dy='1.2em'>" + d.Country + "</tspan>" 
+			       + "<tspan x='0' dy='1.2em'>" +d.Quality_of_life_index + "</tspan>";
+			})
+   	          //.text(function(d) { return d.Country + + d.Purchasing_power_index + </tspan> + d.Quality_of_life_index + "<br/>" + d.Cost_of_living_index; })
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
                    })
