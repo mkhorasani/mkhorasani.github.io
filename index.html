@@ -48,7 +48,19 @@
      <div id="vis-canvas"> 
 	     
 	<style> rect, axes {fill: black; stroke: black;} circle {fill: none; stroke: white;} line {stroke="gray"; stroke-width="50;}  
-	     
+	
+	div.tooltip {	
+		    position: absolute;			
+		    text-align: center;			
+		    width: 60px;					
+		    height: 28px;					
+		    padding: 2px;				
+		    font: 12px sans-serif;		
+		    background: lightsteelblue;	
+		    border: 0px;		
+		    border-radius: 8px;			
+		    pointer-events: none;			
+		}
 		
 	</style>
 	
@@ -72,6 +84,10 @@
 	var yAxis = d3.svg.axis()
 	    .scale(y)
 	    .orient("left");
+		
+	var div = d3.select("body").append("div")	
+		    .attr("class", "tooltip")				
+		    .style("opacity", 0);
 		
 	// Add the svg canvas
 	var svg = d3.select("#vis-canvas").append("svg")
@@ -125,13 +141,21 @@
 	      .style("fill", function(d) { return color(d.Continent); })
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
-		  .append("svg:title")
-   	          .text(function(d) { return d.Country, d.Purchasing_power_index, d.Quality_of_life_index, d.Cost_of_living_index; })
+		  //.append("svg:title")
+   	          //.text(function(d) { return d.Country, d.Purchasing_power_index, d.Quality_of_life_index, d.Cost_of_living_index; })
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
                    })
                    .transition()
                    .style("opacity", 0.01)
+		   
+		  div.transition()		
+                .duration(200)		
+                .style("opacity", .9);		
+            	div.html(d.Country + "<br/>"  + d.Quality_of_life_index)	
+                .style("left", (d3.event.pageX) + "px")		
+                .style("top", (d3.event.pageY - 28) + "px");	
+            })
 		  
           })
               .on("mouseout", function(d){
@@ -141,6 +165,9 @@
                 })
                 .transition()
                 .style("opacity", 1)
+		div.transition()		
+                .duration(500)		
+                .style("opacity", 0)
           })
 
 			
