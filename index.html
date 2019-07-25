@@ -136,7 +136,9 @@
           });
 		
 		
-	    svg.append("path")
+	    svg.selectAll(".line")
+	      .data(data)
+	    	.enter().append("path")
 	      .datum(data)
 	      .attr("fill", "none")
 	      .attr("stroke", "steelblue")
