@@ -67,10 +67,10 @@
 	    .orient("left");
 	// Add the svg canvas
 	var svg = d3.select("#vis-canvas").append("svg")
-	    .attr("width", 1000 + 2*50)
-	    .attr("height", 400 + 2*50)
+	    .attr("width", 900)
+	    .attr("height", 600)
 	  .append("g")
-	    .attr("transform", "translate(50,50)");
+	    .attr("transform", "translate(" + 50 + "," + 50 + ")");
 	// Get the data
 	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/data.csv", function(error, data) {
 	  if (error) throw error;
