@@ -147,7 +147,7 @@
 	.on("mouseover", function(d){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
-                    return (dot.Continent != "Europe") 
+                    return (d.Continent == "Europe") 
                    })
                    .transition()
                    .style("opacity", 0.01)
@@ -155,7 +155,7 @@
               .on("mouseout", function(d){
                d3.selectAll('.dot')
                 .filter(function(dot){ 
-                 return (dot.Continent != "Europe") 
+                 return (d.Continent == "Europe") 
                 })
                 .transition()
                 .style("opacity", 1)
