@@ -143,7 +143,23 @@
 	       .attr("x",10)
 	       .style("fill",black)
 	       .style("stroke",black)
-	       .attr("class", "rectangle");
+	       .attr("class", "rectangle")
+	.on("mouseover", function(d){
+        	  d3.selectAll('.dot')
+            	   .filter(function(dot){ 
+                    return (dot.Continent != "Europe") 
+                   })
+                   .transition()
+                   .style("opacity", 0.01)
+          })
+              .on("mouseout", function(d){
+               d3.selectAll('.dot')
+                .filter(function(dot){ 
+                 return (dot.Continent != "Europe") 
+                })
+                .transition()
+                .style("opacity", 1)
+          });
 		
 	//var color = d3.scaleOrdinal() // D3 Version 4
   	//.domain(["Europe", "San Francisco", "Austin"])
