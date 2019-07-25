@@ -139,7 +139,8 @@
 		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
-	      .data(color.domain())
+	      //.data(color.domain())
+	    .data(data)
 	    .enter().append("g")
 	      .attr("class", "legend")
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
