@@ -143,16 +143,6 @@
 	    .enter().append("g")
 	      .attr("class", "legend")
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-	  legend.append("circle")
-	      //.attr("x", width -30)
-	      //.attr("y", 120)
-	      //.attr("width", 18)
-	      //.attr("height", 18)
-	      .attr("cx", width -25)
-	      .attr("cy", 130)
-	      .attr("r", 8)
-	      //.style("fill", color);
-	      .style("fill", function(d) { return color(d.Continent); })
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
@@ -168,7 +158,18 @@
                 })
                 .transition()
                 .style("opacity", 1)
-          });	
+          });
+		
+	  legend.append("circle")
+	      //.attr("x", width -30)
+	      //.attr("y", 120)
+	      //.attr("width", 18)
+	      //.attr("height", 18)
+	      .attr("cx", width -25)
+	      .attr("cy", 130)
+	      .attr("r", 8)
+	      .style("fill", color);
+	      	
 		
 
 		
