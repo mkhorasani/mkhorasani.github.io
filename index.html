@@ -78,15 +78,15 @@
 				
 		
 	// Get the data
-	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/data.csv", function(error, data) {
+	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv", function(error, data) {
 	  if (error) throw error;
 	  data.forEach(function(d) {
-	    d.CO2 = +d.CO2;
-	    d.horse = +d.horse;
+	    d.Quality_of_life_index = +d.Quality_of_life_index;
+	    d.Purchasing_power_index = +d.Purchasing_power_index;
 	  });
 	// Scale the range of the data
-	  x.domain(d3.extent(data, function(d) { return d.horse; })).nice();
-	  y.domain(d3.extent(data, function(d) { return d.CO2; })).nice();
+	  x.domain(d3.extent(data, function(d) { return d.Purchasing_power_index; })).nice();
+	  y.domain(d3.extent(data, function(d) { return d.Quality_of_life_index; })).nice();
 	// Add the X Axis
 	  svg.append("g")
 	      .attr("class", "x axis")
@@ -115,8 +115,8 @@
 	    .enter().append("circle")
 	      .attr("class", "dot")
 	      .attr("r", 3.5)
-	      .attr("cx", function(d) { return x(d.horse); })
-	      .attr("cy", function(d) { return y(d.CO2); })
+	      .attr("cx", function(d) { return x(d.Purchasing_power_index); })
+	      .attr("cy", function(d) { return y(d.Quality_of_life_index); })
 	      .style("fill", function(d) { return color(d.type); })
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
