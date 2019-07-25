@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
   <meta charset="utf-8">
-  <title>CS498 Data Visualization Final Project</title>
+  <title>Final Project for CS 498 - Data Visualization Course</title>
   <meta name="author" content="">
   <meta name="description" content="">
 
@@ -11,16 +11,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
   <script src="js/stepper.js"></script>
-  <script src="//d3js.org/d3.v5.min.js"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
 </head>
 <body>
   <div id="container">
-    <h1>Quality of Life Visualization</h1>
-    <h2 class="subtitle">Quality of Life Visualization.</h2>
+    <h1>Title?</h1>
+    <h2 class="subtitle">Visualization.</h2>
     <div id="vis-nav">
-      <a href="#" id="step1" class="step-link active">Scene 1</a>
-      <a href="#" id="step2" class="step-link">Scene 2</a>
-      <a href="#" id="step3" class="step-link">Scene 3</a>
+      <a href="#" id="step1" class="step-link active">Viz-Scene 1</a>
+      <a href="#" id="step2" class="step-link">Viz-Scene 2</a>
+      <a href="#" id="step3" class="step-link">Viz-Scene 3</a>
       <a href="https://github.com/" target="_blank" class="desc-link">About</a>
 
     </div>
@@ -28,27 +28,38 @@
       <div id="annotation-steps">
         <div class="annotation-step" id="step1-annotation" style="display:block;">
           <div class="annotation" id="step1-high-annotation" >
-            <h4>Annotation 1</h4>
-
+            <h4>Annotation 1.</h4>
+                		  
           </div>
          </div>
         <div class="annotation-step" id="step2-annotation">
           <div class="annotation" id="step2-high-annotation" >
-	    <h4>Mouseover</h4>
-
+	    <h4>Mouse.</h4>
+				
           </div>
         </div>
 	<div class="annotation-step" id="step3-annotation">
           <div class="annotation" id="step3-high-annotation" >
-	    <h4>Annotation 2</h4>
-
+	    <h4>Annotation 3</h4>
+		
           </div>
         </div>
       </div>
-     <div id="vis-canvas">
-
+     <div id="vis-canvas"> 
+	     
       <style>
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+	.dot {
+	  stroke: #000;
+	}
+	</style>
 
+	<script>
 	// Set the dimensions of the canvas / graph
 	var margin = {top: 50, right: 20, bottom: 30, left: 80},
 	    width = 940 - margin.left - margin.right,
@@ -73,7 +84,7 @@
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/1.csv", function(error, data) {
+	d3.csv("https://github.com/mkhorasani/mkhorasani.github.io/blob/master/1.csv", function(error, data) {
 	  if (error) throw error;
 	  data.forEach(function(d) {
 	    d.CO2 = +d.CO2;
