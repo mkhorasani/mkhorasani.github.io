@@ -47,8 +47,20 @@
       </div>
      <div id="vis-canvas"> 
 	     
-	<style> rect, axes {fill: none; stroke: black;} circle {fill: none; stroke: none;} line {stroke="gray"; stroke-width="50;}  </style>
-		     
+	//<style> rect, axes {fill: none; stroke: black;} circle {fill: none; stroke: none;} line {stroke="gray"; stroke-width="50;}  </style>
+	
+	<style>
+	.axis path,
+	.axis line {
+	  fill: none;
+	  stroke: #000;
+	  shape-rendering: crispEdges;
+	}
+	.dot {
+	  stroke: #000;
+	}
+	</style>
+	     
 	<script>
 		
 	var margin = {left: 90, right: 20, top: 50, bottom: 50},
