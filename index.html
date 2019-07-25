@@ -136,11 +136,14 @@
                 .style("opacity", 1)
           });
 		
+	//var color = d3.scaleOrdinal() // D3 Version 4
+  	//.domain(["Europe", "San Francisco", "Austin"])
+  	//.range(["#FF0000", "#009933" , "#0000FF"]);
 		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
 	      //.data(color.domain())
-	    .data(data)
+	    .data(data.color.domain())
 	    .enter().append("g")
 	      .attr("class", "legend")
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
