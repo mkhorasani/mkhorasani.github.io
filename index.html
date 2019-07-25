@@ -158,7 +158,7 @@
 	      .attr("cy", 130)
 	      .attr("r", 8)
 	      //.style("fill", color);
-	      .style("fill", function(d, i) { return color(d.Continent); })
+	      .style("fill", function(d, i) { return color(i.Continent); })
 	 	      .on("mouseover", function(d, i){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
