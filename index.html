@@ -136,6 +136,29 @@
                 .style("opacity", 1)
           });
 		
+	var xScale = d3.scaleLinear()
+             //accepts
+             .domain([0, 100])
+             //outputs
+             .range([0, width]);
+
+	var yScale = d3.scaleLinear()
+             //accepts
+             .domain([0, 100])
+             //outputs
+             .range([0, height]);
+		
+	var ygridlines = d3.axisTop()
+                 .tickFormat("")
+                 .tickSize(-h)
+                 .ticks(10)
+                 .scale(xScale);
+                
+	var xgridlines = d3.axisLeft()
+                 .tickFormat("")
+                 .tickSize(-w)
+                 .ticks(10)
+                 .scale(yScale);
 	//var color = d3.scaleOrdinal() // D3 Version 4
   	//.domain(["Europe", "San Francisco", "Austin"])
   	//.range(["#FF0000", "#009933" , "#0000FF"]);
@@ -167,7 +190,6 @@
 	      .style("text-anchor", "end")
 	      .text(function(d) { return d; });
 
-	d3.select("rect").attr("x",500).attr("y",250).attr("height", 50).attr("width",100).style("fill",black);
 		
 	});
 	</script>
