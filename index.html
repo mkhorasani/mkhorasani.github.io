@@ -137,33 +137,15 @@
           });
 		
 	var rect = svg.append("rect")
-	       .attr("height",200)
-	       .attr("width", 200)
+	       .attr("height",300)
+	       .attr("width", 5)
 	       .attr("y",10)
-	       .attr("x",10)
+	       .attr("x",100)
 	       .style("fill",black)
 	       .style("stroke",black)
-	       .attr("class", "rectangle")
-	.on("mouseover", function(d){
-        	  d3.selectAll('.dot')
-            	   .filter(function(dot){ 
-                    return (d.Continent == "Europe") 
-                   })
-                   .transition()
-                   .style("opacity", 0.01)
-          })
-              .on("mouseout", function(d){
-               d3.selectAll('.dot')
-                .filter(function(dot){ 
-                 return (d.Continent == "Europe") 
-                })
-                .transition()
-                .style("opacity", 1)
-          });
+	       .attr("class", "rectangle");
+
 		
-	//var color = d3.scaleOrdinal() // D3 Version 4
-  	//.domain(["Europe", "San Francisco", "Austin"])
-  	//.range(["#FF0000", "#009933" , "#0000FF"]);
 		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
