@@ -84,7 +84,7 @@
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
-	d3.csv("https://raw.githubusercontent.com/mkhorasani/CS498_Data-Visualization_Final_Project/master/QOL.csv?token=AJIVK6ZACYWQN5KPDQH6CVK5HHABK", function(error, data) {
+	d3.csv("https://raw.githubusercontent.com/mkhorasani/CS498_Data-Visualization_Final_Project/master/QOL.csv", function(error, data) {
 	  if (error) throw error;
 	  data.forEach(function(d) {
 	    d.Quality of Life Index = +d.Quality_of_Life_Index;
