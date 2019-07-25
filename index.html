@@ -137,10 +137,11 @@
           });
 		
 	var rect = svg.append("rect")
+		.data(data)
 	       .attr("height",300)
 	       .attr("width", 5)
 	       .attr("y",10)
-	       .attr("x",100)
+	       .attr("x", function(d) { return d3.mean(d.Purchasing_power_index); })
 	       .style("fill",black)
 	       .style("stroke",black)
 	       .attr("class", "rectangle");
