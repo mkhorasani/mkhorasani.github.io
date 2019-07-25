@@ -143,11 +143,23 @@
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
 	      //.data(color.domain())
-	    .data(color.domain(d.Continent))
+	    .data(data)
 	    .enter().append("g")
 	      .attr("class", "legend")
-	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
-	      .on("mouseover", function(d, i){
+	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+		
+	  legend.append("circle")
+	      //.attr("x", width -30)
+	      //.attr("y", 120)
+	      //.attr("width", 18)
+	      //.attr("height", 18)
+	      .attr("cx", width -25)
+	      .attr("cy", 130)
+	      .attr("r", 8)
+	      //.style("fill", color);
+	      .style("fill", function(d) { return color(d.Continent); })
+	 	      .on("mouseover", function(d, i){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
@@ -162,18 +174,7 @@
                 })
                 .transition()
                 .style("opacity", 1)
-          });
-		
-	  legend.append("circle")
-	      //.attr("x", width -30)
-	      //.attr("y", 120)
-	      //.attr("width", 18)
-	      //.attr("height", 18)
-	      .attr("cx", width -25)
-	      .attr("cy", 130)
-	      .attr("r", 8)
-	      .style("fill", color);
-	      	
+          });     	
 		
 
 		
