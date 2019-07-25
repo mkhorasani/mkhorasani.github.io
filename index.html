@@ -143,7 +143,7 @@
 	    .enter().append("g")
 	      .attr("class", "legend")
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
-	      .on("mouseover", function(d){
+	      .on("mouseover", function(d, i){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
@@ -151,7 +151,7 @@
                    .transition()
                    .style("opacity", 0.01)
           })
-              .on("mouseout", function(d){
+              .on("mouseout", function(d, i){
                d3.selectAll('.dot')
                 .filter(function(dot){ 
                  return (dot.Continent != d.Continent) 
