@@ -134,6 +134,18 @@
                 .transition()
                 .style("opacity", 1)
           });
+		
+		
+	    svg.append("path")
+	      .datum(data)
+	      .attr("fill", "none")
+	      .attr("stroke", "steelblue")
+	      .attr("stroke-width", 1.5)
+	      .attr("d", d3.line()
+	      .x(function(d) { return x(d.horse) })
+	      .y(function(d) { return y(d.CO2) })
+        )
+		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
 	      .data(color.domain())
