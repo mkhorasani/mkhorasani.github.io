@@ -148,14 +148,14 @@
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");
 		  
-        	  d3.selectAll('.dot')
-		  //.append("svg:title")
-   	          //.text(function(d) { return d.Country, d.Purchasing_power_index, d.Quality_of_life_index, d.Cost_of_living_index; })
-            	   .filter(function(dot){ 
-                    return (dot.Continent != d.Continent) 
-                   })
-                   .transition()
-                   .style("opacity", 0.01)
+        	  //d3.selectAll('.dot')
+		  ////.append("svg:title")
+   	          ////.text(function(d) { return d.Country, d.Purchasing_power_index, d.Quality_of_life_index, d.Cost_of_living_index; })
+            	   //.filter(function(dot){ 
+                    //return (dot.Continent != d.Continent) 
+                   //})
+                   //.transition()
+                   //.style("opacity", 0.01)
 		 
 
 		  
@@ -165,12 +165,12 @@
                 .duration(500)		
                 .style("opacity", 0);
 		  
-               d3.selectAll('.dot')
-                .filter(function(dot){ 
-                 return (dot.Continent != d.Continent) 
-                })
-                .transition()
-                .style("opacity", 1)
+               //d3.selectAll('.dot')
+                //.filter(function(dot){ 
+                 //return (dot.Continent != d.Continent) 
+                //})
+                //.transition()
+                //.style("opacity", 1)
 		  
 
           })
