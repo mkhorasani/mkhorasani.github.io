@@ -125,13 +125,13 @@
 	      .style("fill", function(d) { return color(d.Continent); })
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
+		  .append("svg:title")
+   	          .text(function(d) { return d.Country; });
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
                    })
                    .transition()
                    .style("opacity", 0.01)
-		  .append("svg:title")
-   	          .text(function(d) { return d.Country; });
 		  
           })
               .on("mouseout", function(d){
