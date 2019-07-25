@@ -125,8 +125,8 @@
 	      .style("fill", function(d) { return color(d.Continent); })
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
-		  .append("svg:title")
-   	          .text(function(d) { return d.Country, d.Purchasing_power_index, d.Quality_of_life_index, d.Cost_of_living_index; })
+		  //.append("svg:title")
+   	          //.text(function(d) { return d.Country, d.Purchasing_power_index, d.Quality_of_life_index, d.Cost_of_living_index; })
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
                    })
