@@ -131,7 +131,7 @@
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
 		  .append("svg:title")
-   	          .text(function(d) { return d.Country, d.Purchasing_power_index + "<br/>" + d.Quality_of_life_index + "<br/>" + d.Cost_of_living_index; })
+   	          .text(function(d) { return d.Country + <br/> + d.Purchasing_power_index + <br/> + d.Quality_of_life_index + <br/> + d.Cost_of_living_index; })
             	   .filter(function(dot){ 
                     return (dot.Continent != d.Continent) 
                    })
