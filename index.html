@@ -95,11 +95,9 @@
 	      .call(xAxis)
 	    .append("text")
 	      .attr("class", "label")
-	      //.attr("x", width)
-	      //.attr("y", -6)
 	      .attr("x", 500)
 	      .attr("y", 45)
-	      .style("text-anchor", "end")
+	      //.style("text-anchor", "end")
 	      .text("Purchasing Power Index");
 	// Add the Y Axis
 	  svg.append("g")
@@ -108,11 +106,9 @@
 	    .append("text")
 	      .attr("class", "label")
 	      .attr("transform", "rotate(-90)")
-	      .attr("x", -50)
+	      .attr("x", -60)
 	      .attr("y", -45)
-	      //.attr("y", 6)
-	      //.attr("dy", ".71em")
-	      .style("text-anchor", "end")
+	      //.style("text-anchor", "end")
 	      .text("Quality of Life Index")
 	// Add the Scatterplot
 	  svg.selectAll(".dot")
