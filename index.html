@@ -47,19 +47,8 @@
       </div>
      <div id="vis-canvas"> 
 	     
-	//<style> rect, axes {fill: none; stroke: black;} circle {fill: none; stroke: none;} line {stroke="gray"; stroke-width="50;}  </style>
+	<style> rect, axes {fill: none; stroke: black;} circle {fill: none; stroke: none;} line {stroke="gray"; stroke-width="50;}  </style>
 	
-	<style>
-	.axis path,
-	.axis line {
-	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
-	}
-	.dot {
-	  stroke: #000;
-	}
-	</style>
 	     
 	<script>
 		
@@ -126,7 +115,8 @@
 	      .data(data)
 	    .enter().append("circle")
 	      .attr("class", "dot")
-	      .attr("r", 3.5)
+	      //.attr("r", 3.5)
+	      .attr("r", function(d) { return r((d.Quality_of_life_index)*0.005*5); })
 	      .attr("cx", function(d) { return x(d.Purchasing_power_index); })
 	      .attr("cy", function(d) { return y(d.Quality_of_life_index); })
 	      .style("fill", function(d) { return color(d.Continent); })
