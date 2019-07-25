@@ -167,16 +167,7 @@
 	      .style("text-anchor", "end")
 	      .text(function(d) { return d; });
 
-	  svg.append("rect")
-	      //.attr("class", "label")
-	      //.attr("transform", "rotate(-90)")
-	      .attr("x", -235)
-	      .attr("y", -45)
-	      .attr("width", 50)
-	      .attr("height",20)
-	      .style("fill",black);
-	      //.style("text-anchor", "end")
-	      //.text("Quality of Life Index")
+	d3.select("rect").attr("x",500).attr("y",250).attr("height", 50).attr("width",100).style("fill",black);
 		
 	});
 	</script>
