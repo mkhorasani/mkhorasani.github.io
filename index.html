@@ -136,17 +136,7 @@
                 .style("opacity", 1)
           });
 			
-	var rect = svg.append("rect")
-		.data(data)
-	       .attr("height",300)
-	       .attr("width", 2)
-	       .attr("y",0)
-	       .attr("x", 400)
-	       .style("fill",black)
-	       .style("stroke",black)
-	       .attr("class", "rectangle");
-
-		
+	
 		
 	// Add the Legend
 	  var legend = svg.selectAll(".legend")
@@ -175,6 +165,16 @@
 	      .style("text-anchor", "end")
 	      .text(function(d) { return d; });
 
+		
+	var rect = svg.append("rect")
+		.data(data)
+	       .attr("height",270)
+	       .attr("width", 2)
+	       .attr("y",0)
+	       .attr("x", 400)
+	       .style("fill",black)
+	       .style("stroke",black)
+	       .attr("class", "rectangle");
 		
 	});
 	</script>
