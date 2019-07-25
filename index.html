@@ -47,13 +47,13 @@
       </div>
      <div id="vis-canvas"> 
 	     
-	<style> rect, axes {fill: none; stroke: thin;} circle {fill: none; stroke: none;}  </style>
+	<style> rect, axes {fill: none; stroke: black; shape-rendering="geometricPrecision";} circle {fill: none; stroke: none;}  </style>
 	     
 	<script>
 
-	var margin = {left: 75, right: 25, top: 50, bottom: 50},
+	var margin = {left: 90, right: 10, top: 50, bottom: 50},
 	    width = 1000 - margin.left - margin.right,
-	    height = 600 - margin.top - margin.bottom;
+	    height = 500 - margin.top - margin.bottom;
 		
 	// Set the ranges
 	var x = d3.scale.linear()
