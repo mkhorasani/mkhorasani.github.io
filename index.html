@@ -123,6 +123,10 @@
 	      .attr("cx", function(d) { return x(d.Purchasing_power_index); })
 	      .attr("cy", function(d) { return y(d.Quality_of_life_index); })
 	      .style("fill", function(d) { return color(d.Continent); })
+		
+	      .append("svg:title")
+   	      .text(function(d) { return d.Country; })
+		
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
