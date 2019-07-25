@@ -130,6 +130,8 @@
                    })
                    .transition()
                    .style("opacity", 0.01)
+		  .append("svg:title")
+   	          .text(function(d) { return d.Country; });
 		  
           })
               .on("mouseout", function(d){
@@ -140,8 +142,7 @@
                 .transition()
                 .style("opacity", 1)
           })
-			      .append("svg:title")
-   	      .text(function(d) { return d.Country; });
+
 			
 		
 	// Add the Legend
