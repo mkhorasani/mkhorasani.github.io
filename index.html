@@ -144,13 +144,13 @@
 	      .attr("class", "legend")
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 	  legend.append("rect")
-	      .attr("x", width)
+	      .attr("x", width -30)
 	      .attr("y", 120)
 	      .attr("width", 18)
 	      .attr("height", 18)
 	      .style("fill", color);
 	  legend.append("text")
-	      .attr("x", width)
+	      .attr("x", width -40)
 	      .attr("y", 135)
 	      .style("text-anchor", "end")
 	      .text(function(d) { return d; });
