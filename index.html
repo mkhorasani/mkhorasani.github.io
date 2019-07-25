@@ -86,9 +86,9 @@
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
 					
 	// Get the data
-	//d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv", function(error, data) {
-	  //if (error) throw error;
-	const data = await d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv");
+	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv", function(error, data) {
+	  if (error) throw error;
+
 	  data.forEach(function(d) {
 	    d.Quality_of_life_index = +d.Quality_of_life_index;
 	    d.Purchasing_power_index = +d.Purchasing_power_index;
