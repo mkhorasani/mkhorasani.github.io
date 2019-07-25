@@ -47,14 +47,20 @@
       </div>
      <div id="vis-canvas"> 
 	     
-	<style> rect {fill: none; stroke: #000; width=50; height = 10;} circle {fill: none; stroke: none;}  </style>
+	<style> rect {fill: none; stroke: #000;} circle {fill: none; stroke: none;}  </style>
 
 
 	<script>
 	// Set the dimensions of the canvas / graph
-	var margin = {top: 50, right: 20, bottom: 30, left: 80},
-	    width = 940 - margin.left - margin.right,
-	    height = 500 - margin.top - margin.bottom;
+	//var margin = {top: 50, right: 20, bottom: 30, left: 80},
+	    //width = 940 - margin.left - margin.right,
+	var svg = d3.select('svg')
+	.attr("width",1000 + 2*50)
+	.attr("height",500 + 2*50)
+	.append("g")
+	.attr("transform","translate(50,50)")
+	
+	    //height = 500 - margin.top - margin.bottom;
 	// Set the ranges
 	var x = d3.scale.linear()
 	    .range([0, width]);
