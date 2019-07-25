@@ -60,40 +60,54 @@
 	</style>
 
 	<script>
-	// Set the dimensions of the canvas / graph
+		
+	//Canvas Dimensions
+		
 	var margin = {top: 50, right: 20, bottom: 30, left: 80},
 	    width = 940 - margin.left - margin.right,
 	    height = 500 - margin.top - margin.bottom;
-	// Set the ranges
+		
+	//Scales
+		
 	var x = d3.scale.linear()
 	    .range([0, width]);
 	var y = d3.scale.linear()
 	    .range([height, 0]);
 	var color = d3.scale.category10();
-	// Define the axes
+		
+	//Axes
+		
 	var xAxis = d3.svg.axis()
 	    .scale(x)
 	    .orient("bottom");
 	var yAxis = d3.svg.axis()
 	    .scale(y)
 	    .orient("left");
-	// Add the svg canvas
+		
+	//SVG
+		
 	var svg = d3.select("#vis-canvas").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
 	  .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-	// Get the data
+	
+	//Data
+		
 	d3.csv("https://raw.githubusercontent.com/mkhorasani/CS498_Data-Visualization_Final_Project/master/QOL.csv", function(error, data) {
 	  if (error) throw error;
 	  data.forEach(function(d) {
 	    d.Quality of Life Index = +d.Quality_of_Life_Index;
 	    d.Purchasing Power Index = +d.Purchasing_Power_Index;
 	  });
-	// Scale the range of the data
+		
+	// Scaling Data
+		
 	  x.domain(d3.extent(data, function(d) { return d.Purchasing_Power_Index; })).nice();
 	  y.domain(d3.extent(data, function(d) { return d.Quality_of_Life_Index; })).nice();
-	// Add the X Axis
+	
+	//X Axis
+		
 	  svg.append("g")
 	      .attr("class", "x axis")
 	      .attr("transform", "translate(0," + height + ")")
@@ -104,7 +118,9 @@
 	      .attr("y", -6)
 	      .style("text-anchor", "end")
 	      .text("Quality of Life Index");
-	// Add the Y Axis
+	
+	//Y Axis
+		
 	  svg.append("g")
 	      .attr("class", "y axis")
 	      .call(yAxis)
@@ -115,7 +131,9 @@
 	      .attr("dy", ".71em")
 	      .style("text-anchor", "end")
 	      .text("Purchasing Power Index")
-	// Add the Scatterplot
+		
+	//Plotting Data
+		
 	  svg.selectAll(".dot")
 	      .data(data)
 	    .enter().append("circle")
@@ -140,7 +158,9 @@
                 .transition()
                 .style("opacity", 1)
           });
-	// Add the Legend
+		
+	//Legend
+		
 	  var legend = svg.selectAll(".legend")
 	      .data(color.domain())
 	    .enter().append("g")
