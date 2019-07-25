@@ -142,7 +142,7 @@
 	      .data(color.domain())
 	    .enter().append("g")
 	      .attr("class", "legend")
-	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
 	      .on("mouseover", function(d){
         	  d3.selectAll('.dot')
             	   .filter(function(dot){ 
