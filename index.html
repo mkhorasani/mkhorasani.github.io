@@ -49,7 +49,10 @@
 	     
 	<style> rect {fill: none; stroke: #000;} circle {fill: none; stroke: none;}  </style>
 
-
+	var margins = {top: 50, right: 20, bottom: 30, left: 80},
+	    width = 940 - margins.left - margins.right,
+	    height = 500 - margins.top - margins.bottom;
+	     
 	<script>
 
 	// Set the ranges
@@ -66,11 +69,7 @@
 	    .scale(y)
 	    .orient("left");
 	// Add the svg canvas
-
-		
-	var margins = {right: 20, left: 80, top: 50, bottom: 30},
-	    height = 500 - margins.left - margins.right,
-	    width = 940 - margins.top - margins.bottom;		
+	
 		
 	var svg = d3.select("#vis-canvas").append("svg")
 	    .attr("width", width + margins.left + margins.right)
