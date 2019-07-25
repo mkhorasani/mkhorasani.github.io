@@ -51,6 +51,16 @@
 	     
 	<script>
 
+	var margin = {top: 50, right: 20, bottom: 30, left: 80},
+	    width = 940 - margin.left - margin.right,
+	    height = 500 - margin.top - margin.bottom;
+		
+	var svg = d3.select("#vis-canvas").append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		
 	// Set the ranges
 	var x = d3.scale.linear()
 	    .range([0, width]);
@@ -65,16 +75,7 @@
 	    .scale(y)
 	    .orient("left");
 	// Add the svg canvas
-	
-	var margin = {top: 50, right: 20, bottom: 30, left: 80},
-	    width = 940 - margin.left - margin.right,
-	    height = 500 - margin.top - margin.bottom;
 		
-	var svg = d3.select("#vis-canvas").append("svg")
-	    .attr("width", width + margin.left + margin.right)
-	    .attr("height", height + margin.top + margin.bottom)
-	  .append("g")
-	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	// Get the data
 	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/data.csv", function(error, data) {
 	  if (error) throw error;
