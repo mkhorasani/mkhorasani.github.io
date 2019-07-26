@@ -11,8 +11,8 @@ h2.subtitle {
 
 /* Basic styling for the step links */
 a.step-link {
-  padding: 7px;
-  background-color: #222;
+  padding: 5px;
+  background-color: #000;
   color: #666;
   text-decoration: none;
 }
@@ -57,7 +57,7 @@ a.step-link:hover, a.active {
   height: 100%;
   z-index: 10;
   overflow: hidden;
-  background-color: #eee;
+  background-color: #fff;
 }
 
 /* By default, all annotation-steps are hidden. */
