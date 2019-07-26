@@ -1,6 +1,6 @@
 /* This is just to make things look a bit better */
 body {
-  font: 16px roboto thin;
+  font: 20px roboto thin;
 }
 
 h2.subtitle {
@@ -72,33 +72,19 @@ a.step-link:hover, a.active {
   position: absolute;
 }
 
-#step1-left-annotation {
-  left: 30px;
-  top: 120px;
-  width: 800px;
+#step1-high-annotation {
+  left: 170px;
+  top: 130px;
+  width: 140px;
 }
 
-#step1-right-annotation {
-  left: 770px;
-  top: 120px;
-  width: 800px;
-}
-
-#step2-center-annotation {
-  left: 290px;
-  top: 40px;
-  width: 400px;
-  text-align: center;
+#step2-high-annotation {
+  left: 200px;
+  top: 60px;
+  width: 140px;
 }
 
 #step3-high-annotation {
-  left: 50px;
+  left: 240px;
   top: 30px;
-  width: 200px;
-}
-
-#step3-low-annotation {
-  left: 730px;
-  top: 550px;
-  width: 200px;
-}
+  width: 140px;
