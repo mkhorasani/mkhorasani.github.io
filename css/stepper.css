@@ -11,7 +11,7 @@ h2.subtitle {
 
 /* Basic styling for the step links */
 a.step-link {
-  padding: 10px;
+  padding: 7px;
   background-color: #222;
   color: #666;
   text-decoration: none;
@@ -33,7 +33,7 @@ a.step-link:hover, a.active {
 #vis-container {
   position: relative;
   width: 980px;
-  height: 400px;
+  height: 450px;
   margin-top: 10px;
 }
 
@@ -81,7 +81,7 @@ a.step-link:hover, a.active {
 #step1-right-annotation {
   left: 770px;
   top: 120px;
-  width: 200px;
+  width: 800px;
 }
 
 #step2-center-annotation {
