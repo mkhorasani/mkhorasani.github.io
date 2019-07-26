@@ -1,6 +1,6 @@
 /* This is just to make things look a bit better */
 body {
-  font: 20px roboto thin;
+  font: 18px roboto thin;
 }
 
 h2.subtitle {
@@ -13,7 +13,7 @@ h2.subtitle {
 a.step-link {
   padding: 5px;
   background-color: #000;
-  color: #666;
+  color: #888;
   text-decoration: none;
 }
 
@@ -75,16 +75,16 @@ a.step-link:hover, a.active {
 #step1-high-annotation {
   left: 170px;
   top: 130px;
-  width: 140px;
+  width: 240px;
 }
 
 #step2-high-annotation {
   left: 200px;
   top: 60px;
-  width: 140px;
+  width: 240px;
 }
 
 #step3-high-annotation {
   left: 240px;
   top: 30px;
-  width: 140px;
+  width: 240px;
