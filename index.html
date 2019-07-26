@@ -21,7 +21,7 @@
       <a href="#" id="step1" class="step-link active">Slide 1</a>
       <a href="#" id="step2" class="step-link">Slide 2</a>
       <a href="#" id="step3" class="step-link">Slide 3</a>
-      <a href="https://github.com/" target="_blank" class="desc-link">Description</a>
+      <a href="https://github.com/mkhorasani/mkhorasani.github.io/blob/master/README.md" target="_blank" class="desc-link">Description</a>
 
     </div>
     <div id="vis-container">
@@ -48,7 +48,6 @@
      <div id="vis-canvas"> 
 	     
 	<style> rect, axes {fill: black; stroke: black;} circle {fill: none; stroke: white;} line {stroke="gray"; stroke-width="50;}  
-
 		
 	</style>
 	
@@ -58,74 +57,57 @@
 	var margin = {left: 90, right: 20, top: 50, bottom: 50},
 	    width = 900 - margin.left - margin.right,
 	    height = 400 - margin.top - margin.bottom;
-		
-	// Set the ranges
-	var x = d3.scale.linear()
-	    .range([0, width]);
-	var y = d3.scale.linear()
-	    .range([height, 0]);
+
+	var x = d3.scale.linear().range([0, width]);
+	var y = d3.scale.linear().range([height, 0]);
 	var color = d3.scale.category10();
-	// Define the axes
-	var xAxis = d3.svg.axis()
-	    .scale(x)
-	    .orient("bottom");
-	var yAxis = d3.svg.axis()
-	    .scale(y)
-	    .orient("left");
+
+	var xAxis = d3.svg.axis().scale(x).orient("bottom");
+	var yAxis = d3.svg.axis().scale(y).orient("left");
 		
 
-	var div = d3.select("body").append("div")	
-	    .attr("class", "tooltip")				
-	    .style("opacity", 0);
-		
-	// Add the svg canvas
 	var svg = d3.select("#vis-canvas").append("svg")
 	    .attr("width", width + margin.left + margin.right)
 	    .attr("height", height + margin.top + margin.bottom)
-	  .append("g")
+	    .append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");	
 					
-	// Get the data
-	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv", function(error, data) {
-	  if (error) throw error;
+	d3.csv("https://raw.githubusercontent.com/mkhorasani/mkhorasani.github.io/master/data/QOL.csv", function(error, data) {if (error) throw error;
 
-	  data.forEach(function(d) {
+	data.forEach(function(d) {
 	    d.Quality_of_life_index = +d.Quality_of_life_index;
 	    d.Purchasing_power_index = +d.Purchasing_power_index;
-	  });
-	// Scale the range of the data
-		
+	  });	
 		
 	  x.domain(d3.extent(data, function(d) { return d.Purchasing_power_index; })).nice();
 	  y.domain(d3.extent(data, function(d) { return d.Quality_of_life_index; })).nice();
-	// Add the X Axis
+
 	  svg.append("g")
 	      .attr("class", "x axis")
 	      .attr("transform", "translate(0," + height + ")")
 	      .call(xAxis)
-	    .append("text")
+	      .append("text")
 	      .attr("class", "label")
 	      .attr("x", 310)
 	      .attr("y", 45)
 	      .style("font-size", "15px")
-	      //.style("text-anchor", "end")
 	      .text("Purchasing Power Index");
-	// Add the Y Axis
+
 	  svg.append("g")
 	      .attr("class", "y axis")
 	      .call(yAxis)
-	    .append("text")
+	     .append("text")
 	      .attr("class", "label")
 	      .attr("transform", "rotate(-90)")
 	      .attr("x", -215)
 	      .attr("y", -45)
 	      .style("font-size", "15px")
-	      //.style("text-anchor", "end")
 	      .text("Quality of Life Index")
-	// Add the Scatterplot
+
+															       
 	  svg.selectAll(".dot")
 	      .data(data)
-	    .enter().append("circle")
+	      .enter().append("circle")
 	      .attr("class", "dot")
 	      .attr("r", function(d) { return ((d.Cost_of_living_index)*0.1); })
 	      .attr("cx", function(d) { return x(d.Purchasing_power_index); })
@@ -135,55 +117,38 @@
         	  d3.selectAll('.dot')
 		  .append("svg:title")
    	          .text(function(d) { return d.Country + " - Cost of Living Index: " + d.Cost_of_living_index; })
-            	   .filter(function(dot){ 
-                    return (dot.Continent != d.Continent) 
-                   })
-                   .transition()
-                   .style("opacity", 0.01)
-		 
-
-		  
+            	  .filter(function(dot){ 
+                  return (dot.Continent != d.Continent) 
+                  })
+                  .transition()
+                  .style("opacity", 0.01)
           })
               .on("mouseout", function(d){		  
-               d3.selectAll('.dot')
-                .filter(function(dot){ 
-                 return (dot.Continent != d.Continent) 
-                })
-                .transition()
-                .style("opacity", 1)
-		  
-
+               	  d3.selectAll('.dot')
+                  .filter(function(dot){ 
+                  return (dot.Continent != d.Continent) 
+                  })
+                  .transition()
+                  .style("opacity", 1)
           })
 
-			
-		
-	// Add the Legend
 	  var legend = svg.selectAll(".legend")
 	      .data(color.domain())
-	    .enter().append("g")
+	      .enter().append("g")
 	      .attr("class", "legend")
 	      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-		
 	  legend.append("circle")
-	      //.attr("x", width -30)
-	      //.attr("y", 120)
-	      //.attr("width", 18)
-	      //.attr("height", 18)
 	      .attr("cx", width -25)
 	      .attr("cy", 130)
 	      .attr("r", 8)
 	      .style("fill", color);
     	
-		
-
-		
 	  legend.append("text")
 	      .attr("x", width -40)
 	      .attr("y", 135)
 	      .style("text-anchor", "end")
 	      .text(function(d) { return d; });
-
 		
 	var rect = svg.append("rect")
 	       .attr("height",300)
