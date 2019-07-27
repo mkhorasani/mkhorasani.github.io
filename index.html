@@ -117,19 +117,8 @@
         	  d3.selectAll('.dot')
 		  .append("svg:title")
    	          .text(function(d) { return d.Country + " - Cost of Living Index: " + d.Cost_of_living_index; })
-            	  .filter(function(dot){ 
-                  return (dot.Continent != d.Continent) 
-                  })
-                  .transition()
-                  .style("opacity", 0.01)
           })
-              .on("mouseout", function(d){		  
-               	  d3.selectAll('.dot')
-                  .filter(function(dot){ 
-                  return (dot.Continent != d.Continent) 
-                  })
-                  .transition()
-                  .style("opacity", 1)
+
           })
 
 	  var legend = svg.selectAll(".legend")
@@ -169,7 +158,6 @@
 	      .attr("x", 10)
 	      .attr("y", 130)
 	      .style("font-size", "15px")
-	      //.style("text-anchor", "end")
 	      .text("Average");
 		
 	});
