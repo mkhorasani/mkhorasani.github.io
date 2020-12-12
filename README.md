@@ -1,9 +1,9 @@
 ## Quality of Life vs. Purchasing Power Visualization
 ### CS 498 Data Visualization Final Project
 
-![Quality of life visualization](https://github.com/mkhorasani/mkhorasani.github.io/blob/master/Quality%20of%20life%20visualization.PNG?raw=true)
+![Quality of life visualization](https://github.com/mkhorasani/mkhorasani.github.io/blob/master/Quality%20of%20life%20visualization%20dashboard.PNG?raw=true)
 
-To view this visualization please refer to the following [link.](https://mkhorasani.github.io/)
+To view this visualization please refer to the following [link](https://mkhorasani.github.io/).
 
 ### Messaging:
 This visualization attempts to narrate and depict the relationship between the quality of life and purchasing power for various countries and regions in the world. Specifically, this visualization may help the user in selecting a country for living by determining how much quality of life, purchasing power and cost of living they will have. It is worthy to note that these three quantities are all unitless indices.
